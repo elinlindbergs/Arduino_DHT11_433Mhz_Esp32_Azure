@@ -7,9 +7,9 @@
 
 RH_ASK driver(2000, 4, 5, 0); //2000=speed, 4=receiver, 5=transmitter
 
-char* ssid = "Ingemars Wi-Fi-nätverk";
-char* pass = "Ingemars";
-static char* connectionString = "HostName=IoTelinLi.azure-devices.net;DeviceId=esp32;SharedAccessKey=Ra4u+BoUAfJvsLqXF7J91lR4rlhJ77KDjoaHuHsYGRY=";
+char* ssid = "Network name";
+char* pass = "Network password";
+static char* connectionString = "connection string to azure";
 static bool _connected = false;
 
 float temp = 0;
@@ -36,9 +36,9 @@ void loop() {
   char payload[64];
   char message[64];
   uint8_t buf[64] = "\0";
-  uint8_t buflen = sizeof(buf); //length
+  uint8_t buflen = sizeof(buf);
 
-  //Checking if message has gone throughe.
+  //Checking if message is receive from 433mhz.
   if (driver.recv(buf, &buflen)) {
     Serial.println("\nReceived: ");
     Serial.println((char *)buf);
